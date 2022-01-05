@@ -2,6 +2,10 @@
   <article>
     <h1>{{ hello.title }}</h1>
     <nuxt-content :document="hello" />
+    <div v-if="changePassword">
+      <input type="text" v-model="password" ref="inputPassword" />
+    </div>
+    <div v-else><span @click="enableChangePassword">Click Here</span></div>
   </article>
 </template>
 
@@ -18,6 +22,22 @@ export default {
     return {
       hello,
     }
+  },
+  data() {
+    return {
+      password: '',
+      changePassword: false,
+    }
+  },
+  methods: {
+    enableChangePassword() {
+      this.changePassword = true
+      // ทำให้ focus เลย
+      //  this.$nextTick ทำให้
+      this.$nextTick(() => {
+        this.$refs.inputPassword.focus()
+      })
+    },
   },
 }
 </script>
