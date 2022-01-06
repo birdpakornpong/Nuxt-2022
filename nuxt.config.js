@@ -43,9 +43,12 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // import content
-    '@nuxt/content'
+    '@nuxt/content',
+    '@nuxtjs/axios'
   ],
-
+  axios: {
+    
+  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   }
